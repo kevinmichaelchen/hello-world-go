@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-go-api
+  labels:
+    app: hello-world-go
+    tier: api
+spec:
+  ports:
+    - port: 7899
+      targetPort: 7899
+  selector:
+    app: hello-world-go
+    tier: api
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-go-api
+  labels:
+    app: hello-world-go
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world-go
+      tier: api
+  template:
+    metadata:
+      labels:
+        app: hello-world-go
+        tier: api
+    spec:
+      containers:
+      - image: kevinmichaelchen/hello-world-go-api:v0.0.1
+        name: hello-world-go-api
+        ports:
+        - containerPort: 7899

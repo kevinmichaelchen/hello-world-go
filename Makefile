@@ -1,3 +1,5 @@
+DOCKER_ORG = kevinmichaelchen
+
 ##########################
 ## BUILDING AND RUNNNIG ##
 ##########################
@@ -40,7 +42,7 @@ vet:
 #####################
 .PHONY: docker-build
 docker-build:
-	docker image build -t teslagov/hello-world-go-api:v0.0.1 .
+	docker image build -t $(DOCKER_ORG)/hello-world-go-api:v0.0.1 .
 
 
 
@@ -50,7 +52,7 @@ docker-build:
 .PHONY: mk-build
 mk-build:
 	@eval $$(minikube docker-env) ;\
-	docker image build -t teslagov/hello-world-go-api:v0.0.1 .
+	docker image build -t $(DOCKER_ORG)/hello-world-go-api:v0.0.1 .
 
 .PHONY: mk-start
 mk-start:
