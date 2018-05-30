@@ -12,6 +12,14 @@ make
 curl http://localhost:7899/id
 ```
 
+## Running with Docker-Compose
+```bash
+make docker-build
+docker-compose up -d
+curl http://localhost:7899/id
+docker-compose stop
+```
+
 ## Running in Minikube
 Install Docker ([for Mac](https://docs.docker.com/docker-for-mac/install/), [for Windows](https://docs.docker.com/docker-for-windows/install/)), 
 [hyperkit](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver), and 

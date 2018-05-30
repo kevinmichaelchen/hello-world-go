@@ -1,0 +1,7 @@
+version: '2'
+services:
+  solr:
+    container_name: hello-world-go
+    image: kevinmichaelchen/hello-world-go-api:v0.0.1
+    ports:
+      - "7899:7899"
