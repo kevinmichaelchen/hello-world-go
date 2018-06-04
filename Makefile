@@ -12,6 +12,10 @@ all:
 build:
 	go build -o ./bin/hello-world-go .
 
+.PHONY: build-linux
+build-linux:
+	env GOOS=linux GOARCH=386 go build -o ./bin/hello-world-go-linux -v .
+
 .PHONY: run
 run:
 	./bin/hello-world-go

@@ -33,5 +33,6 @@ func (a *App) ServeRest(addr string) {
 }
 
 func (a *App) GetAppID(w http.ResponseWriter, r *http.Request) {
+	log.Println("Someone is requesting our app ID...")
 	utils.RespondWithMessage(w, http.StatusOK, fmt.Sprintf("Your App ID is: %s", a.ID))
 }
