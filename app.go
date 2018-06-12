@@ -29,7 +29,8 @@ func (a *App) ServeRest(addr string) {
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type"})
 	originsOk := handlers.AllowedOrigins([]string{"http://localhost:3000"})
 	methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "DELETE", "POST", "PUT", "OPTIONS"})
-	log.Fatal(http.ListenAndServe(addr, handlers.CORS(originsOk, headersOk, methodsOk)(a.Router)))
+	h := handlers.CORS(handlers.AllowCredentials(), originsOk, headersOk, methodsOk)(a.Router)
+	log.Fatal(http.ListenAndServe(addr, h))
 }
 
 func (a *App) GetAppID(w http.ResponseWriter, r *http.Request) {
