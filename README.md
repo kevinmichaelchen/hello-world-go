@@ -1,4 +1,6 @@
 # hello-world-go
+[![GoDoc](https://godoc.org/github.com/kevinmichaelchen/hello-world-go?status.svg)](https://godoc.org/github.com/kevinmichaelchen/hello-world-go)
+[![Go report](http://goreportcard.com/badge/kevinmichaelchen/hello-world-go)](http://goreportcard.com/report/kevinmichaelchen/hello-world-go)
 
 A simple Go server that demos routing.
 
