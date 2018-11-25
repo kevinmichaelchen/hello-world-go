@@ -1,20 +1,19 @@
+GO111MODULE = on
 DOCKER_ORG = kevinmichaelchen
 
 ##########################
-## BUILDING AND RUNNNIG ##
+## BUILDING AND RUNNING ##
 ##########################
 .PHONY: all
 all:
-	@$(MAKE) build
+	@$(MAKE) fetch-deps
 	@$(MAKE) run
+	@echo "Hitting server now..."
+	curl http://localhost:7899/id
 
 .PHONY: build
 build:
-	go build -o ./bin/hello-world-go .
-
-.PHONY: build-linux
-build-linux:
-	env GOOS=linux GOARCH=386 go build -o ./bin/hello-world-go-linux -v .
+	env GO111MODULE=${GO111MODULE} go build -o ./bin/hello-world-go .
 
 .PHONY: run
 run:
@@ -22,7 +21,7 @@ run:
 
 .PHONY: fetch-deps
 fetch-deps:
-	go get -u -v ./...
+	env GO111MODULE=${GO111MODULE} go get -u -v ./...
 
 #####################
 ### CODE QUALITY  ###
