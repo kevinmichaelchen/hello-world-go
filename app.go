@@ -30,6 +30,7 @@ func (a *App) ServeRest(addr string) {
 	originsOk := handlers.AllowedOrigins([]string{"http://localhost:3000"})
 	methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "DELETE", "POST", "PUT", "OPTIONS"})
 	h := handlers.CORS(handlers.AllowCredentials(), originsOk, headersOk, methodsOk)(a.Router)
+	log.Println("Server is running...")
 	log.Fatal(http.ListenAndServe(addr, h))
 }
 
