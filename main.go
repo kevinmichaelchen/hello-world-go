@@ -2,13 +2,22 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"strconv"
 	"sync"
-	"github.com/TeslaGov/envy"
 )
 
 func main() {
 
-	port := envy.IntOr("APP_PORT", 7899)
+	portString, ok := os.LookupEnv("APP_PORT")
+	if !ok {
+		portString = "7899"
+	}
+	port, err := strconv.Atoi(portString)
+	if err != nil {
+		log.Fatalf("port is invalid: %s", portString)
+	}
 
 	var wg sync.WaitGroup
 

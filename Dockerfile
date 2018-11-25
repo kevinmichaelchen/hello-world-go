@@ -1,4 +1,4 @@
-FROM golang:1.10 as builder
+FROM golang:1.11 as builder
 ADD . /go/src/github.com/kevinmichaelchen/hello-world-go
 WORKDIR /go/src/github.com/kevinmichaelchen/hello-world-go
 RUN go get ./... && \
