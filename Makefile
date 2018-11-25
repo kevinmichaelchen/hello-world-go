@@ -9,6 +9,7 @@ all:
 	@$(MAKE) fetch-deps
 	@$(MAKE) run
 	@echo "Hitting server now..."
+	sleep 2
 	curl http://localhost:7899/id
 
 .PHONY: build
@@ -17,7 +18,7 @@ build:
 
 .PHONY: run
 run:
-	./bin/hello-world-go
+	go run *.go
 
 .PHONY: fetch-deps
 fetch-deps:
