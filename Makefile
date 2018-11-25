@@ -9,8 +9,6 @@ all:
 	@$(MAKE) fetch-deps
 	@$(MAKE) run
 	@echo "Hitting server now..."
-	sleep 2
-	curl http://localhost:7899/id
 
 .PHONY: build
 build:
