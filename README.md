@@ -42,3 +42,8 @@ kubectl get --watch po
 # Hit the endpoint multiple times and observe load balancing in action
 for i in $(seq 1 7); do printf "Request #$i: "; curl $(minikube service hello-world-go-api --url)/id; echo ""; done
 ```
+
+## Benchmarks
+Load tests show nearly 80k requests per second.
+
+![](./benchmark.png)
